@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t amdad/mydocker/frontend -f Dockerfile.dev .
+
+scripts:
+  - docker run amdad/mydocker/frontend npm run test -- --coverage
